@@ -38,8 +38,6 @@ options(oo)})\n"  string) buf)
 (add-hook 'ess-mode-hook '(lambda () (set (make-local-variable 'indent-region-function)
                                           'ess-indent-region-as-R-function)))
 
-;; Keybindings
-
 ;; History
 (add-hook 'inferior-ess-mode-hook
           '(lambda nil

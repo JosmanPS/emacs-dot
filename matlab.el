@@ -27,6 +27,5 @@
 ;; Debugging
 (global-set-key (kbd "<f10>") 'gud-cont)
 (global-set-key (kbd "<f9>") 'gud-step)    ;; Step in
-(global-set-key (kbd "<f8>") 'gud-next)    ;; Step 1 
+(global-set-key (kbd "<f8>") 'gud-next)    ;; Step 1
 (global-set-key (kbd "<f7>") 'gud-finish)  ;; Step back
-

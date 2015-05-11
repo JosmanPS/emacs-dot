@@ -2,68 +2,63 @@
 ;; Functions
 ;;
 
-;; Insert line before
+(global-set-key (kbd "C-o") nil)
+(global-set-key (kbd "C-o e") 'eval-region)
+
 (defun otrenav-bol-and-inl ()
+  "Insert line at point."
   (interactive)
   (beginning-of-visual-line)
   (newline-and-indent)
-  (previous-line))
-(global-set-key (kbd "<S-s-return>") 'otrenav-bol-and-inl)
+  (previous-line)
+  (indent-for-tab-command))
 
-;; Insert line after
+(global-set-key (kbd "<C-S-return>") 'otrenav-bol-and-inl)
+
 (defun otrenav-eof-and-inl ()
+  "Insert new line after current one."
   (interactive)
   (end-of-line)
-  (newline-and-indent))
-(global-set-key (kbd "<s-return>") 'otrenav-eof-and-inl)
+  (newline-and-indent)
+  (indent-for-tab-command))
+
+(global-set-key (kbd "<C-return>") 'otrenav-eof-and-inl)
 
 ;; Expand selection
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;;
-;; Navigate bracketes
+;; Navigate brackets and quotation marks
 ;;
+(global-set-key (kbd "<C-M-left>") nil)
+(global-set-key (kbd "<C-M-right>") nil)
+
 (defvar otrenav-left-brackets nil "list of open bracket chars.")
-(setq otrenav-left-brackets '("(" "{" "[" "<" "〔" "【" "〖" "〈" "《" "「" "『" "“" "‘" "‹" "«"))
+(setq otrenav-left-brackets '("(" "{" "[" "<" "〔" "【" "〖" "〈" "《" "「" "『" "'" "\"" "`" "“" "‘" "‹" "«"))
 
 (defvar otrenav-right-brackets nil "list of close bracket chars.")
-(setq otrenav-right-brackets '(")" "]" "}" ">" "〕" "】" "〗" "〉" "》" "」" "』" "”" "’" "›" "»"))
+(setq otrenav-right-brackets '(")" "]" "}" ">" "〕" "】" "〗" "〉" "》" "」" "』" "'" "\"" "`" "”" "’" "›" "»"))
 
 (defun otrenav-backward-left-bracket ()
-  "Move cursor to the previous occurrence of left bracket. The list of brackets to jump to is defined by `otrenav-left-brackets'."
   (interactive)
   (search-backward-regexp (eval-when-compile (regexp-opt otrenav-left-brackets)) nil t))
 
+(global-set-key (kbd "<C-M-left>") 'otrenav-backward-left-bracket)
+
 (defun otrenav-forward-right-bracket ()
-  "Move cursor to the next occurrence of right bracket. The list of brackets to jump to is defined by `otrenav-right-brackets'."
   (interactive)
   (search-forward-regexp (eval-when-compile (regexp-opt otrenav-right-brackets)) nil t))
 
-;;
-;; Navigate quotes
-;;
-(defvar otrenav-ascii-quotes nil "List of quotation chars.")
-(setq otrenav-ascii-quotes '("'" "\""))
-
-(defun otrenav-forward-quote ()
-  "Move cursor to the next occurrence of ASCII quotation mark.
-The list of quotes to jump to is defined by `otrenav-ascii-quotes'.
-See also: `otrenav-backward-quote'."
-  (interactive)
-  (search-forward-regexp (eval-when-compile (regexp-opt otrenav-ascii-quotes)) nil t))
-
-(defun otrenav-backward-quote ()
-  "Move cursor to the previous occurrence of ASCII quotation mark.
-See `otrenav-forward-quote'."
-  (interactive)
-  (search-backward-regexp (eval-when-compile (regexp-opt otrenav-ascii-quotes)) nil t))
+(global-set-key (kbd "<C-M-right>") 'otrenav-forward-right-bracket)
 
 ;;
 ;; Search sites
 ;;
 (defun otrenav-lookup-wikipedia ()
-  "Look up the word under cursor in Wikipedia. If there is a text selection (a phrase), use that. This command switches you to your browser."
+  "Look up the word under cursor in Wikipedia.
+   If there is a text selection (a phrase), use that.
+   This command switches you to your browser."
   (interactive)
   (let (my-word my-url)
     (setq my-word
@@ -76,7 +71,9 @@ See `otrenav-forward-quote'."
     (browse-url my-url)))
 
 (defun otrenav-lookup-google ()
-  "Look up the word under cursor in Google. If there is a text selection (a phrase), use that. This command switches you to your browser."
+  "Look up the word under cursor in Google.
+   If there is a text selection (a phrase), use that.
+   This command switches you to your browser."
   (interactive)
   (let (my-word my-url)
     (setq my-word
@@ -89,7 +86,9 @@ See `otrenav-forward-quote'."
     (browse-url my-url)))
 
 (defun otrenav-lookup-wolfram-alpha ()
-  "Look up the word under cursor in Wolfram Alpha. If there is a text selection (a phrase), use that. This command switches you to your browser."
+  "Look up the word under cursor in Wolfram Alpha.
+   If there is a text selection (a phrase), use that.
+   This command switches you to your browser."
   (interactive)
   (let (my-word my-url)
     (setq my-word
@@ -101,11 +100,9 @@ See `otrenav-forward-quote'."
     (setq my-url (concat "http://www.wolframalpha.com/input/?i=" my-word))
     (browse-url my-url)))
 
-;;
-;; Word/phrase definitions
-;;
 (defun otrenav-lookup-word-definition ()
-  "Look up the current word's definition in a browser. If a region is active (a phrase), lookup that phrase."
+  "Look up the current word's definition in a browser.
+   If a region is active (a phrase), lookup that phrase."
   (interactive)
   (let (my-word my-url)
     (setq my-word
@@ -116,11 +113,7 @@ See `otrenav-forward-quote'."
     (setq my-url (concat "http://www.answers.com/main/ntquery?s=" my-word))
     (browse-url my-url)))
 
-(global-set-key (kbd "<f6>") 'otrenav-lookup-word-definition)
-
-;;
 ;; Search and replace
-;;
 (defun otrenav-uniquify-all-lines-region (start end)
   "Find duplicate lines in region START to END keeping first occurrence."
   (interactive "*r")
@@ -143,9 +136,6 @@ See `otrenav-forward-quote'."
   (delete-file buffer-file-name)
   (kill-buffer (buffer-name)))
 
-;;
-;; Reindentation and buffer cleanup
-;;
 (defun otrenav-untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
@@ -155,17 +145,18 @@ See `otrenav-forward-quote'."
   (indent-region (point-min) (point-max)))
 
 (defun otrenav-cleanup-buffer ()
-  "Operations on the whitespace content of a buffer."
+  "Do things the right way. ;)"
   (interactive)
-  (otrenav-indent-buffer)
+  (whitespace-cleanup)
   (otrenav-untabify-buffer)
-  (otrenav-delete-trailing-whitespace))
+  (otrenav-indent-buffer))
 
-;;
-;; Duplicate lines or region
-;;
+(global-set-key (kbd "C-o c") 'otrenav-cleanup-buffer)
+
 (defun otrenav-duplicate-current-line-or-region (arg)
-  "Duplicates the current line or region ARG times. If there's no region, the current line will be duplicated. However, if there's a region, all lines that region covers will be duplicated."
+  "Duplicates the current line or region ARG times.
+   If there's no region, the current line will be duplicated.
+   If there's a region, all lines that region covers will be duplicated."
   (interactive "p")
   (let (beg end (origin (point)))
     (if (and mark-active (> (point) (mark)))
@@ -182,11 +173,11 @@ See `otrenav-forward-quote'."
         (setq end (point)))
       (goto-char (+ origin (* (length region) arg) arg)))))
 
-;;
-;; Use external program
-;;
+(global-set-key (kbd "C-d") nil)
+(global-set-key (kbd "C-d") 'otrenav-duplicate-current-line-or-region)
+
 (defun otrenav-open-with ()
-  "Simple function that allows us to open the underlying file of a buffer in an external program."
+  "Open current file with external program."
   (interactive)
   (when buffer-file-name
     (shell-command (concat
@@ -196,4 +187,22 @@ See `otrenav-forward-quote'."
                     " "
                     buffer-file-name))))
 
-(global-set-key (kbd "C-c C-c C-o") 'otrenav-open-with)
+(global-set-key (kbd "C-o o") 'otrenav-open-with)
+
+(setq current-theme 'solarized-light)
+(load-theme current-theme t)
+(defun otrenav-switch-theme ()
+  "Switch between light and dark solarized themes."
+  (interactive)
+  (if (eq current-theme 'solarized-light)
+      (setq current-theme 'solarized-dark)
+    (setq current-theme 'solarized-light))
+  (load-theme current-theme t)
+  (powerline-reset))
+
+(global-set-key (kbd "C-o t") 'otrenav-switch-theme)
+
+
+;; Reset the powerline theme.
+;; Should be the last thing to execute.
+(powerline-reset)

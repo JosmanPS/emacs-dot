@@ -2,18 +2,16 @@
 ;; Terminal
 ;;
 
-;; TODO: Figure out a setup for zsh
-(setq multi-term-program "/usr/local/bin/bash")
+(if (eq system-type 'darwin)
+    (progn
+      (setq multi-term-program "/usr/local//bin/bash")
+      (setq explicit-shell-file-name "/usr/local/bin/bash"))
+  (setq multi-term-program "/bin/bash")
+  (setq explicit-shell-file-name "/bin/bash"))
 
 ;;
-;; Multi-term
+;; Multi term
 ;;
-;; TODO: Figure out this setup
-(add-hook 'term-mode-hook
-          (lambda ()
-            (setq show-trailing-whitespace nil)
-            (autopair-mode -1)))
-
 (defcustom term-unbind-key-list
   '("C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>")
   "The key list that will need to be unbind."
@@ -58,7 +56,7 @@
 (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (ad-activate 'ansi-term)
 
-(defun oleh-term-exec-hook ()
+(defun otrenav-term-exec-hook ()
   (let* ((buff (current-buffer))
          (proc (get-buffer-process buff)))
     (set-process-sentinel
@@ -67,7 +65,7 @@
         (if (string= event "finished\n")
             (kill-buffer ,buff))))))
 
-(add-hook 'term-exec-hook 'oleh-term-exec-hook)
+(add-hook 'term-exec-hook 'otrenav-term-exec-hook)
 
 (eval-after-load "term"
   '(define-key term-raw-map (kbd "C-c C-y") 'term-paste))

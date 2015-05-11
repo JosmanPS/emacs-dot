@@ -2,9 +2,6 @@
 ;; Lisp
 ;;
 
-;;
-;; Modes
-;;
 (add-to-list 'auto-mode-alist '("/.el$'" . emacs-lisp-mode))
 
 (setq lisp-modes '(lisp-mode
@@ -14,7 +11,3 @@
                    clojure-mode))
 
 (add-hook 'emacs-lisp-mode-hook 'imenu-add-menubar-index)
-
-;;
-;; Keybindings
-;;

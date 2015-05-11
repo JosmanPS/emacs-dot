@@ -30,20 +30,16 @@
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-(setq-default truncate-lines t)
+(setq-default truncate-lines nil)
 (show-paren-mode t)
 (toggle-diredp-find-file-reuse-dir 1)
 (tool-bar-mode -1)
 (transient-mark-mode t)
 
 ;; Theme
-(require 'moe-theme)
-(load-theme 'moe-dark t)
+(load-theme 'solarized-dark t)
 (require 'powerline)
 (powerline-default-theme)
-(powerline-moe-theme)
-(require 'moe-theme-switcher)
-(moe-theme-set-color 'w/b)
 
 ;; Info about empty lines
 (setq-default indicate-empty-lines t)
@@ -54,8 +50,6 @@
 (setq auto-window-vscroll nil)
 (setq mouse-wheel-follow-mouse t)
 (setq mouse-wheel-progressive-speed nil)
-;; (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-;; (setq scroll-conservatively 1000)
 (scroll-bar-mode -1)
 
 (if (display-graphic-p)
@@ -96,10 +90,10 @@
 (setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
 (setq auto-save-list-file-prefix autosave-dir)
 
-;; Acejump mode
+;; Others
+(require 'git-gutter-fringe)
 (require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-
-;; Dired
 (require 'dired-x)
 (setq-default dired-omit-files-p t)
+
+

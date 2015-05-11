@@ -16,10 +16,8 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
-;; Clean up
 (setq-default show-trailing-whitespace t)
 
-;; Markdown
 (add-hook 'markdown-mode-hook
           (lambda ()
             (visual-line-mode t)

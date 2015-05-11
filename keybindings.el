@@ -2,9 +2,6 @@
 ;; Key bindings
 ;;
 
-;;
-;; Cheat-sheet for default keybindings
-;;
 ;; describe-bindings        C-h b
 ;; describe-mode            C-h m
 ;; describe-key             C-h k
@@ -82,11 +79,6 @@
 ;; M-p and M-n: previous text in prompt
 ;; C-g: cancel an operation
 
-;; Git:
-;; C-x v v: commits the current file
-;; C-x v =: diff of the current file
-;; C-x v g: annotated version of the file showing for each line, the commit were that line was changed and by whom.
-
 ;; Pending topics:
 ;; - Regular expression search and replacement
 ;; - Version control
@@ -97,14 +89,6 @@
 ;; M-x follow-mode: two sided document
 ;; M-x icomplete-mode: show completions as you type
 ;; M-x iswitchb-mode: Show all buffer names when switching
-
-;; CUA mode
-;; C-h f cua-mode RET
-
-;; Project management
-;; helm-projectile
-;; projectile
-
 
 ;; Region
 ;; M-@ mark-word
@@ -120,20 +104,6 @@
 ;; C-x C-l downcase-region
 ;; C-x C-u upcase-region
 ;; M-x fill-region
-
-;; describe-function F1 f
-;; describe-key F1 k
-;; describe-mode F1 m
-;; describe-variable F1 v
-;; describe-char
-;; apropos-command F1 a
-
-;; C-= expand region
-
-
-;;
-;; Custom keybindings
-;;
 
 ;; General
 (global-set-key (kbd "C-c b") 'ibuffer)
@@ -155,10 +125,6 @@
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
-;;(global-set-key (kbd "C-c C-k") 'compile)
-;;(global-set-key (kbd "C-x g") 'magit-status)
-;;(global-set-key (kbd "RET") 'newline-and-indent)
-;;(global-set-key (kbd "M-/") 'hippie-expand)
 
 ;; Smex
 (global-set-key (kbd "M-x") 'smex)
@@ -166,19 +132,7 @@
 (global-set-key (kbd "C-c M-x") 'smex-update)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; Experimental
-;; (global-set-key (kbd "\C-cu") 'reset-ui)
-;; (global-set-key (kbd "C-c t") 'toggle-eshell-visor)
+;; Acejump
+(define-key global-map (kbd "C-o SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-o b") 'ace-window)
 
-;; Python
-(define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
-(define-key global-map (kbd "C-c o") 'iedit-mode)
-
-;; Tabs and cleanup
-(global-set-key (kbd "C-x M-t") 'cleanup-region)
-(global-set-key (kbd "C-c n") 'cleanup-buffer)
-
-;; Custom functions
-(global-set-key (kbd "<home>") 'otrenav-backward-left-bracket)
-(global-set-key (kbd "<end>") 'otrenav-forward-right-bracket)
-(global-set-key (kbd "s-d") 'duplicate-current-line-or-region)
