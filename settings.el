@@ -67,7 +67,7 @@
     (setq mouse-sel-mode 1)))
 
 (set-face-attribute 'default nil
-                    :font "Source Code Pro-13")
+                    :font "Source Code Pro-14")
 
 ;; Ido
 (require 'ido)
@@ -94,6 +94,6 @@
 (require 'git-gutter-fringe)
 (require 'ace-jump-mode)
 (require 'dired-x)
+(require 'bookmark+)
 (setq-default dired-omit-files-p t)
-
 
