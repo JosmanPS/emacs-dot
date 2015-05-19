@@ -1,13 +1,17 @@
-;;
-;; Web
-;;
+;;; web.el --- Web development configuration
+
+;;; Commentary:
+
+;; TODO: (otn) put JavaScript in a different section
+
+;;; Code:
 
 ;;
 ;; HTML
 ;;
 (setq sgml-basic-offset 4)
 (defun otrenav-syntax-color-hex ()
-  "Syntax color hex color spec such as 「#ff1100」 in current buffer."
+  "Syntax color hex values buffer."
   (interactive)
   (font-lock-add-keywords
    nil
@@ -23,17 +27,11 @@
 (add-hook 'html-mode-hook 'otrenav-syntax-color-hex)
 (add-hook 'web-mode-hook 'otrenav-syntax-color-hex)
 (add-hook 'markdown-mode-hook 'otrenav-syntax-color-hex)
-
-;;
-;; JavaScript
-;;
-(setq js-indent-level 4)
-(defun otrenav-js-custom ()
-  "JavaScript mode hook."
-  (setq js-indent-level 4))
-(add-hook 'js-mode-hook 'otrenav-js-custom)
-(add-hook 'web-mode-hook 'otrenav-js-custom)
+(add-hook 'emacs-lisp-mode-hook 'otrenav-syntax-color-hex)
 
 ;;
 ;; CSS
 ;;
+
+(provide 'web)
+;;; web.el ends here

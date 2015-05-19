@@ -1,41 +1,35 @@
+;;; init.el --- Omar Trejo's Emacs Setup
 ;;
-;; Emacs configuration file
-;; @author: Omar Trejo
+;;; Commentary:
 ;;
+;; Any code product of myself is released
+;; under the MIT license. For any code created
+;; by other people, refer to their respective
+;; release notes.
+;;
+;; May, 2015
 
-;; Order is important. Be careful.
+;;; Code:
 
-(load "~/.emacs.d/path.el")
-(load "~/.emacs.d/packages.el")
-(load "~/.emacs.d/settings.el")
-(load "~/.emacs.d/editing.el")
-(load "~/.emacs.d/org-mode.el")
-(load "~/.emacs.d/web.el")
-(load "~/.emacs.d/terminal.el")
-(load "~/.emacs.d/latex.el")
-(load "~/.emacs.d/helm.el")
-(load "~/.emacs.d/spellcheck.el")
-(load "~/.emacs.d/matlab.el")
-(load "~/.emacs.d/ess.el")
-(load "~/.emacs.d/lisp.el")
-(load "~/.emacs.d/python.el")
-(load "~/.emacs.d/functions.el")
-(load "~/.emacs.d/keybindings.el")
-(load "~/.emacs.d/init_setup.el")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
- '(matlab-comment-anti-indent 0)
- '(matlab-fill-code t)
- '(matlab-functions-have-end t)
- '(matlab-indent-function-body t)
- '(matlab-shell-command-switches (quote ("-nodesktop -nosplash"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(load "~/.emacs.d/config/path.el")
+(load "~/.emacs.d/config/packages.el")
+(load "~/.emacs.d/config/settings.el")
+(load "~/.emacs.d/config/functions.el")
+(load "~/.emacs.d/config/keybindings.el")
+(load "~/.emacs.d/config/addons.el")
+(load "~/.emacs.d/config/plain_text.el")
+(load "~/.emacs.d/config/org.el")
+(load "~/.emacs.d/config/web.el")
+(load "~/.emacs.d/config/javascript.el")
+(load "~/.emacs.d/config/terminal.el")
+(load "~/.emacs.d/config/latex.el")
+(load "~/.emacs.d/config/helm.el")
+(load "~/.emacs.d/config/spellcheck.el")
+(load "~/.emacs.d/config/matlab.el")
+(load "~/.emacs.d/config/ess.el")
+(load "~/.emacs.d/config/lisp.el")
+(load "~/.emacs.d/config/python.el")
+(load "~/.emacs.d/config/init_setup.el")
+
+(provide 'init)
+;;; init.el ends here

@@ -1,6 +1,8 @@
-;;
-;; Key bindings
-;;
+;;; keybindings.el --- Keybindings configuration
+
+;;; Commentary:
+
+;;; Code:
 
 ;; describe-bindings        C-h b
 ;; describe-mode            C-h m
@@ -110,29 +112,13 @@
 (global-set-key (kbd "s-g") 'goto-line)
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "s-r") 'query-replace)
-(global-set-key (kbd "s-o") 'ido-find-file)
 (global-set-key (kbd "s-i") 'browse-url-at-point)
 (global-set-key (kbd "<f8>") 'ispell-word)
-(global-set-key (kbd "M-<f8>") 'flyspell-check-next-word)
-(global-set-key (kbd "C-M-s") 'instant-search-using-helm)
-(global-set-key (kbd "C-M-S-s") 'helm-resume)
-(global-set-key (kbd "C-M-g") 'instant-rgrep-using-helm)
 (global-set-key (kbd "C-h s-f") 'find-function)
 (global-set-key (kbd "C-h s-t") 'occur)
 (global-set-key (kbd "S-s-a") 'align-regexp)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
-;; Smex
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c M-x") 'smex-update)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-;; Acejump
-(define-key global-map (kbd "C-o SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-o b") 'ace-window)
-
+(provide 'keybindings)
+;;; keybindings.el ends here

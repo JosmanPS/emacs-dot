@@ -1,6 +1,9 @@
-;;
-;; Path
-;;
+;;; path.el --- Path setup
+
+;;; Commentary:
+
+;;; Code:
+
 (getenv "PATH")
 
 (setenv "PATH"
@@ -11,4 +14,7 @@
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
-(setq backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
+(provide 'path)
+;;; path.el ends here

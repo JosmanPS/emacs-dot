@@ -1,6 +1,8 @@
-;;
-;; Flyspell
-;;
+;;; spellcheck.el --- Spell check configuration
+
+;;; Commentary:
+
+;;; Code:
 
 (require 'flyspell-lazy)
 (flyspell-lazy-mode t)
@@ -12,7 +14,8 @@
 
 (setq-default ispell-list-command "list")
 
-;; TODO: Add other programming languages
+;; TODO: (otn) Add other programming languages
+
 (dolist (mode '(emacs-lisp-mode-hook
                 latex-mode-hook
                 python-mode-hook
@@ -25,10 +28,7 @@
   (flyspell-goto-next-error)
   (ispell-word))
 
-;; TODO: What is this?
-;; (eval-after-load "flyspell"
-;;   '(progn
-;;      (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
-;;      (define-key flyspell-mouse-map [mouse-3] #'undefined)))
+(global-set-key (kbd "M-<f8>") 'flyspell-check-next-word)
 
-;; TODO: Add other languages
+(provide 'spellcheck)
+;;; spellcheck.el ends here

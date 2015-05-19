@@ -1,6 +1,8 @@
-;;
-;; ESS
-;;
+;;; ess.el --- Emacs Speaks Statistics Configuration
+
+;;; Commentary:
+
+;;; Code:
 
 ;; Modes
 (add-to-list 'auto-mode-alist '("/.R$'" . R-mode))
@@ -35,13 +37,17 @@ options(oo)})\n"  string) buf)
     (delete-region beg end)
     (insert string)))
 
-(add-hook 'ess-mode-hook '(lambda () (set (make-local-variable 'indent-region-function)
+(add-hook 'ess-mode-hook '(lambda () (set (make-local-variable
+                                           'indent-region-function)
                                           'ess-indent-region-as-R-function)))
 
 ;; History
 (add-hook 'inferior-ess-mode-hook
           '(lambda nil
-             (define-key inferior-ess-mode-map [\M-up]
+             (define-key inferior-ess-mode-map [\C-up]
                'comint-previous-matching-input-from-input)
-             (define-key inferior-ess-mode-map [\M-down]
+             (define-key inferior-ess-mode-map [\C-down]
                'comint-next-matching-input-from-input)))
+
+(provide 'ess)
+;;; ess.el ends here

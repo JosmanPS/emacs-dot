@@ -1,14 +1,12 @@
-;;
-;; Python
-;;
+;;; python.el --- Python configuration
 
-;;
-;; Modes
-;;
+;;; Commentary:
+
+;;; Code:
+
 (add-to-list 'auto-mode-alist '("/.py$'" . python-mode))
 (elpy-enable)
 
-;; Fix two 
 (define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
 (define-key global-map (kbd "C-c o") 'iedit-mode)
 
@@ -19,3 +17,6 @@
 ;; - Indentation highlighting with "M-x highlight-identation-mode"
 ;; - Simultaneous editing with "C-c o"
 ;; - Moving/editing code blocks with "C-c >" and "C-c <"
+
+(provide 'python)
+;;; python.el ends here

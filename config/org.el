@@ -1,8 +1,10 @@
-;;
-;; Org-mode
-;;
+;;; org-mode.el --- Org-mode configuration
 
-;; TODO: Set this up
+;;; Commentary:
+
+;;; Code:
+
+;; TODO: (otn) Set this up
 
 (setq org-log-done t
       org-todo-keywords '((sequence "TODO" "INPROGRESS" "DONE"))
@@ -38,3 +40,6 @@
       org-habit-graph-column 80
       org-habit-show-habits-only-for-today t
       org-habit-show-all-today t)
+
+(provide 'org-mode)
+;;; org-mode.el ends here

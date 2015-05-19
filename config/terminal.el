@@ -1,6 +1,10 @@
-;;
-;; Terminal
-;;
+;;; terminal.el --- Terminal configuration
+
+;;; Commentary:
+
+;;; Code:
+
+(add-to-list 'auto-mode-alist '("/.zsh$" . shell-script-mode))
 
 (if (eq system-type 'darwin)
     (progn
@@ -69,3 +73,6 @@
 
 (eval-after-load "term"
   '(define-key term-raw-map (kbd "C-c C-y") 'term-paste))
+
+(provide 'terminal)
+;;; terminal.el ends here

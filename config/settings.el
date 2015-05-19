@@ -1,21 +1,22 @@
-;;
-;; General settings
-;;
+;;; settings.el --- General settings configuration
+
+;;; Commentary:
+
+;;; Code:
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-(require 'autopair)
-(require 'dired+)
 
 (autopair-global-mode t)
+
 (delete-selection-mode t)
 (global-font-lock-mode t)
 (global-hl-line-mode t)
 (global-linum-mode t)
-(global-visual-line-mode nil)
-(menu-bar-mode -1)
+
 (pending-delete-mode t)
 (prefer-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
+
 (setq echo-keystrokes 0.1)
 (setq indent-tabs-mode nil)
 (setq inhibit-splash-screen t)
@@ -27,24 +28,30 @@
 (setq use-dialog-box nil)
 (setq visible-bell t)
 (setq x-select-enable-clipboard t)
+
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-(setq-default truncate-lines nil)
+
+;; TODO: (otn) fix this
+(set-default 'global-visual-line-mode nil)
+(set-default 'truncate-lines t)
+(setq truncate-partial-width-windows t)
+
 (show-paren-mode t)
 (toggle-diredp-find-file-reuse-dir 1)
 (tool-bar-mode -1)
 (transient-mark-mode t)
 
 ;; Theme
-(load-theme 'solarized-dark t)
-(require 'powerline)
-(powerline-default-theme)
+;;(load-theme 'solarized-dark t)
+(load-theme 'material-design t)
 
-;; Info about empty lines
+;; Whitespace
 (setq-default indicate-empty-lines t)
 (when (not indicate-empty-lines)
   (toggle-indicate-empty-lines))
+;; (setq-default show-trailing-whitespace t)
 
 ;; Mouse scrolling
 (setq auto-window-vscroll nil)
@@ -66,22 +73,9 @@
     (defun track-mouse(e))
     (setq mouse-sel-mode 1)))
 
+;; Font
 (set-face-attribute 'default nil
                     :font "Source Code Pro-14")
-
-;; Ido
-(require 'ido)
-(require 'ido-vertical-mode)
-(ido-mode t)
-(ido-vertical-mode t)
-(setq ido-enable-flex-matching t)
-(setq ido-use-virtual-buffers t)
-
-;; Smex
-(require 'smex)
-(smex-initialize)
-(setq smex-save-file
-      (expand-file-name "misc/smex-items" user-emacs-directory))
 
 ;; Backups
 (defvar backup-dir (expand-file-name "~/.emacs.d/backups/"))
@@ -90,10 +84,5 @@
 (setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
 (setq auto-save-list-file-prefix autosave-dir)
 
-;; Others
-(require 'git-gutter-fringe)
-(require 'ace-jump-mode)
-(require 'dired-x)
-(require 'bookmark+)
-(setq-default dired-omit-files-p t)
-
+(provide 'settings)
+;;; settings.el ends here

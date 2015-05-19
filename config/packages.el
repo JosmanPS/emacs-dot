@@ -1,6 +1,8 @@
-;;
-;; Automadted packages
-;;
+;;; packages.el --- List of packages to be installed
+
+;;; Commentary:
+
+;;; Code:
 
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -17,6 +19,7 @@
                    ac-math
                    ace-jump-mode
                    ace-window
+                   anzu
                    async
                    auctex
                    auctex-latexmk
@@ -42,9 +45,11 @@
                    ess-R-object-popup
                    ess-smart-equals
                    expand-region
+                   flycheck
                    flymake-python-pyflakes
                    flyspell-lazy
                    git-gutter-fringe
+                   guide-key
                    helm
                    helm-R
                    helm-bind-key
@@ -67,6 +72,7 @@
                    nodejs-repl
                    nose
                    org
+                   neotree
                    pony-mode
                    popup
                    powerline
@@ -88,7 +94,7 @@
                    skewer-mode
                    smex
                    solarized-theme
-		   theme-changer
+                   theme-changer
                    virtualenvwrapper
                    web-beautify
                    web-mode
@@ -99,3 +105,5 @@
     (package-install package)))
 
 
+(provide 'packages)
+;;; packages.el ends here

@@ -1,6 +1,8 @@
-;;
-;; Functions
-;;
+;;; functions.el --- Various functions
+
+;;; Commentary:
+
+;;; Code:
 
 (global-set-key (kbd "C-o") nil)
 (global-set-key (kbd "C-o e") 'eval-region)
@@ -189,20 +191,18 @@
 
 (global-set-key (kbd "C-o o") 'otrenav-open-with)
 
-(setq current-theme 'solarized-light)
-(load-theme current-theme t)
-(defun otrenav-switch-theme ()
-  "Switch between light and dark solarized themes."
-  (interactive)
-  (if (eq current-theme 'solarized-light)
-      (setq current-theme 'solarized-dark)
-    (setq current-theme 'solarized-light))
-  (load-theme current-theme t)
-  (powerline-reset))
+;; Switch theme - unused for now
+;; (setq current-theme 'solarized-light)
+;; (load-theme current-theme t)
+;; (defun otrenav-switch-theme ()
+;;   "Switch between light and dark solarized themes."
+;;   (interactive)
+;;   (if (eq current-theme 'solarized-light)
+;;       (setq current-theme 'solarized-dark)
+;;     (setq current-theme 'solarized-light))
+;;   (load-theme current-theme t)
+;;   (powerline-reset))
+;; (global-set-key (kbd "C-o t") 'otrenav-switch-theme)
 
-(global-set-key (kbd "C-o t") 'otrenav-switch-theme)
-
-
-;; Reset the powerline theme.
-;; Should be the last thing to execute.
-(powerline-reset)
+(provide 'functions)
+;;; functions.el ends here
