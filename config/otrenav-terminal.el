@@ -1,4 +1,4 @@
-;;; terminal.el --- Terminal configuration
+;;; otrenav-terminal.el --- Terminal configuration
 
 ;;; Commentary:
 
@@ -74,5 +74,5 @@
 (eval-after-load "term"
   '(define-key term-raw-map (kbd "C-c C-y") 'term-paste))
 
-(provide 'terminal)
-;;; terminal.el ends here
+(provide 'otrenav-terminal)
+;;; otrenav-terminal.el ends here

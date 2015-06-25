@@ -1,4 +1,4 @@
-;;; addons.el --- Various small configurations
+;;; otrenav-addons.el --- Various small configurations
 ;;
 ;;; Commentary:
 ;;
@@ -127,6 +127,6 @@
 (key-chord-mode 1)
 ;; (key-chord-define-global "||" 'undo)
 
-(provide 'addons)
-;;; addons.el ends here
+(provide 'otrenav-addons)
+;;; otrenav-addons.el ends here
 

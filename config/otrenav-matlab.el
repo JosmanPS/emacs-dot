@@ -1,7 +1,7 @@
-;;; matlab.el --- Matlab configuration
-
+;;; otrenav-matlab.el --- Matlab configuration
+;;
 ;;; Commentary:
-
+;;
 ;;; Code:
 
 (add-to-list
@@ -24,5 +24,5 @@
 (add-hook 'matlab-mode-hook (lambda () (setq truncate-lines t)))
 (add-hook 'matlab-mode-hook (lambda () (setq visual-line-mode nil)))
 
-(provide 'matlab)
-;;; matlab.el ends here
+(provide 'otrenav-matlab)
+;;; otrenav-matlab.el ends here

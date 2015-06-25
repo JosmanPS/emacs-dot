@@ -1,4 +1,4 @@
-;;; lisp.el --- Lisp configuration
+;;; otrenav-lisp.el --- Lisp configuration
 
 ;;; Commentary:
 
@@ -16,5 +16,5 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (setq truncate-lines t)))
 
 
-(provide 'lisp)
-;;; lisp.el ends here
+(provide 'otrenav-lisp)
+;;; otrenav-lisp.el ends here

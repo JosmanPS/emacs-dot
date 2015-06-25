@@ -1,4 +1,4 @@
-;;; settings.el --- General settings configuration
+;;; otrenav-settings.el --- General settings configuration
 
 ;;; Commentary:
 
@@ -11,7 +11,7 @@
 (delete-selection-mode t)
 (global-font-lock-mode t)
 (global-hl-line-mode t)
-(global-linum-mode t)
+(global-linum-mode 0)
 
 (pending-delete-mode t)
 (prefer-coding-system 'utf-8)
@@ -84,5 +84,13 @@
 (setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
 (setq auto-save-list-file-prefix autosave-dir)
 
-(provide 'settings)
-;;; settings.el ends here
+;;
+;; Dired
+;;
+;; Auto refresh buffers
+(global-auto-revert-mode 1)
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
+(provide 'otrenav-settings)
+;;; otrenav-settings.el ends here

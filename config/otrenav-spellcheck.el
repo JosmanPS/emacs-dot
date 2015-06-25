@@ -1,4 +1,4 @@
-;;; spellcheck.el --- Spell check configuration
+;;; otrenav-spellcheck.el --- Spell check configuration
 
 ;;; Commentary:
 
@@ -42,5 +42,5 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-(provide 'spellcheck)
-;;; spellcheck.el ends here
+(provide 'otrenav-spellcheck)
+;;; otrenav-spellcheck.el ends here

@@ -1,4 +1,4 @@
-;;; python.el --- Python configuration
+;;; otrenav-python.el --- Python configuration
 ;;
 ;;; Commentary:
 ;;
@@ -58,5 +58,5 @@
 ;; Anaconda mode (lookup documentation)
 (add-hook 'python-mode-hook 'anaconda-mode)
 
-(provide 'python)
-;;; python.el ends here
+(provide 'otrenav-python)
+;;; otrenav-python.el ends here

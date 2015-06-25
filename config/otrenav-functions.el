@@ -1,7 +1,7 @@
-;;; functions.el --- Various functions
-
+;;; otrenav-functions.el --- Various functions
+;;
 ;;; Commentary:
-
+;;
 ;;; Code:
 
 (global-set-key (kbd "C-o") nil)
@@ -206,5 +206,81 @@
 ;;   (powerline-reset))
 ;; (global-set-key (kbd "C-o t") 'otrenav-switch-theme)
 
-(provide 'functions)
-;;; functions.el ends here
+;;
+;; Join lines
+;;
+(global-set-key (kbd "C-o C-j")
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))
+
+;;
+;; Rename buffers
+;;
+(defun rename-current-buffer-file ()
+  "Renames current buffer and file it is visiting."
+  (interactive)
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (error "Buffer '%s' is not visiting a file!" name)
+      (let ((new-name (read-file-name "New name: " filename)))
+        (if (get-buffer new-name)
+            (error "A buffer named '%s' already exists!" new-name)
+          (rename-file filename new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil)
+          (message "File '%s' successfully renamed to '%s'"
+                   name (file-name-nondirectory new-name)))))))
+
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+
+;;
+;; Switch lines up and down
+;;
+(defun move-line-down ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (forward-line)
+      (transpose-lines 1))
+    (forward-line)
+    (move-to-column col)))
+
+(defun move-line-up ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (forward-line)
+      (transpose-lines -1))
+    (move-to-column col)))
+
+(global-set-key (kbd "<C-S-down>") 'move-line-down)
+(global-set-key (kbd "<C-S-up>") 'move-line-up)
+
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
+
+;;
+;; Show line numbers when going to line
+;;
+(defun goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (unwind-protect
+      (progn
+        (linum-mode 1)
+        (goto-line (read-number "Goto line: ")))
+    (linum-mode -1)))
+
+;;
+;; SGML magic functions
+;;
+(defadvice sgml-delete-tag (after reindent-buffer activate)
+  (otrenav-cleanup-buffer))
+
+(defadvice sgml-close-tag (after close-tag-then-newline activate)
+  (newline-and-indent))
+
+(provide 'otrenav-functions)
+;;; otrenav-functions.el ends here

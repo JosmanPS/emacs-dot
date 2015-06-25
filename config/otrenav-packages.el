@@ -1,4 +1,4 @@
-;;; packages.el --- List of packages to be installed
+;;; otrenav-packages.el --- List of packages to be installed
 
 ;;; Commentary:
 
@@ -36,7 +36,7 @@
                    dired-rainbow
                    dired-subtree
                    direx
-                   django-mode
+                   ;; django-mode
                    django-snippets
                    editorconfig
                    elpy
@@ -69,6 +69,8 @@
                    jedi-direx
                    key-chord
                    latex-pretty-symbols
+                   magit
+                   magit-filenotify
                    markdown-mode
                    matlab-mode
                    mc-extras
@@ -107,5 +109,5 @@
     (package-install package)))
 
 
-(provide 'packages)
-;;; packages.el ends here
+(provide 'otrenav-packages)
+;;; otrenav-packages.el ends here

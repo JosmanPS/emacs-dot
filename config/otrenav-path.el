@@ -1,4 +1,4 @@
-;;; path.el --- Path setup
+;;; otrenav-path.el --- Path setup
 
 ;;; Commentary:
 
@@ -16,5 +16,5 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-(provide 'path)
-;;; path.el ends here
+(provide 'otrenav-path)
+;;; otrenav-path.el ends here

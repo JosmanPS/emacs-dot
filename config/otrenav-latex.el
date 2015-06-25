@@ -1,4 +1,4 @@
-;;; latex.el --- Latex configuration
+;;; otrenav-latex.el --- Latex configuration
 
 ;;; Commentary:
 
@@ -50,5 +50,5 @@
 (add-hook 'reftex-load-hook 'imenu-add-menubar-index)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
-(provide 'latex)
-;;; latex.el ends here
+(provide 'otrenav-latex)
+;;; otrenav-latex.el ends here

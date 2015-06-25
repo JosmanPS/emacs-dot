@@ -1,4 +1,4 @@
-;;; init_setup.el --- Visual layout configuration
+;;; otrenav-windows.el --- Visual layout configuration
 
 ;;; Commentary:
 ;;
@@ -16,5 +16,5 @@
 ;; (split-window-right)
 (other-window 1)
 
-(provide 'init_setup)
-;;; init_setup.el ends here
+(provide 'otrenav-windows)
+;;; otrenav-windows.el ends here

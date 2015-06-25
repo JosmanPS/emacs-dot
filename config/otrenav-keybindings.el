@@ -1,9 +1,10 @@
-;;; keybindings.el --- Keybindings configuration
+;;; otrenav-keybindings.el --- Keybindings configuration
 
 ;;; Commentary:
 
 ;;; Code:
 
+;; repeat last command      C-x z
 ;; describe-bindings        C-h b
 ;; describe-mode            C-h m
 ;; describe-key             C-h k
@@ -111,6 +112,24 @@
 ;; Undo in regions!
 ;; 
 
+;; Replace bunch of text:
+;; 1. Set point
+;; 2. Place to form a rectangle
+;; 3. C-x r t [STRING]
+
+;; Transpose: C-t
+;; Transpose line: C-x C-t
+;; Transpose word: M-t
+
+;; Move to closing parenthesis: C-M-n
+;; Move to opening parenthesis: C-M-p
+
+;; TODO: Add expand-region
+;; TODO: Keychords
+
+;; Pop the mark: C-u C-SPC
+;; Searc-backward: C-s C-r
+
 ;; General
 (global-set-key (kbd "C-c b") 'ibuffer)
 (global-set-key (kbd "s-g") 'goto-line)
@@ -123,6 +142,10 @@
 (global-set-key (kbd "S-s-a") 'align-regexp)
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "C-o C-q") 'save-buffers-kill-terminal)
 
-(provide 'keybindings)
-;;; keybindings.el ends here
+;; TODO: Set record kmacro at F1
+;; TODO: Repeat last kmacro at F2
+
+(provide 'otrenav-keybindings)
+;;; otrenav-keybindings.el ends here

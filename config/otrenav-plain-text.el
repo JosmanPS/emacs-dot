@@ -1,4 +1,4 @@
-;;; plain_text.el --- Plain text configuration
+;;; otrenav-plain-text.el --- Plain text configuration
 
 ;;; Commentary:
 
@@ -14,5 +14,5 @@
             (visual-line-mode t)
             (flyspell-mode t)))
 
-(provide 'plain_text)
-;;; plain_text.el ends here
+(provide 'otrenav-plain-text)
+;;; otrenav-plain-text.el ends here

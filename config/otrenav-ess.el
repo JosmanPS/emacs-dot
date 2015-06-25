@@ -43,9 +43,9 @@ options(oo)})\n"  string) buf)
 ;; History
 (add-hook 'inferior-ess-mode-hook
           '(lambda nil
-             (define-key inferior-ess-mode-map [\C-up]
+             (define-key inferior-ess-mode-map [\M-up]
                'comint-previous-matching-input-from-input)
-             (define-key inferior-ess-mode-map [\C-down]
+             (define-key inferior-ess-mode-map [\M-down]
                'comint-next-matching-input-from-input)))
 
 (add-hook 'R-mode-hook 'imenu-add-menubar-index)

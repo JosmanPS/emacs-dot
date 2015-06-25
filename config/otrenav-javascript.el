@@ -1,4 +1,4 @@
-;;; javascript.el --- JavaScript configuration
+;;; otrenav-javascript.el --- JavaScript configuration
 ;;
 ;;; Commentary:
 ;;
@@ -80,5 +80,5 @@
              (lambda ()
                (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
 
-(provide 'javascript)
-;;; javascript.el ends here
+(provide 'otrenav-javascript)
+;;; otrenav-javascript.el ends here
