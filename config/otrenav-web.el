@@ -38,6 +38,7 @@
 (add-hook 'web-mode-hook 'otrenav-syntax-color-hex)
 (add-hook 'markdown-mode-hook 'otrenav-syntax-color-hex)
 (add-hook 'emacs-lisp-mode-hook 'otrenav-syntax-color-hex)
+(add-hook 'css-mode-hook 'otrenav-syntax-color-hex)
 
 ;; Web-beautify keybindings
 (eval-after-load 'sgml-mode

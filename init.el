@@ -29,7 +29,7 @@
 (load "~/.emacs.d/config/otrenav-lisp.el")
 (load "~/.emacs.d/config/otrenav-python.el")
 (load "~/.emacs.d/config/otrenav-ess.el")
-(load "~/.emacs.d/config/otrenav-windows.el")
+;; (load "~/.emacs.d/config/otrenav-windows.el")
 
 (provide 'init)
 ;;; init.el ends here

@@ -28,6 +28,7 @@
 (setq use-dialog-box nil)
 (setq visible-bell t)
 (setq x-select-enable-clipboard t)
+(setq menu-bar-mode -1)
 
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
