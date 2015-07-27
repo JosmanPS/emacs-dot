@@ -8,4 +8,4 @@ misc/
 recentf
 srecode-map.el
 var/
-bookmarks/
+bookmarks/session.*

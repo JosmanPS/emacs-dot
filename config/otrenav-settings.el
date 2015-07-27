@@ -76,7 +76,7 @@
 
 ;; Font
 (set-face-attribute 'default nil
-                    :font "Droid Sans Mono-12")
+                    :font "Roboto Mono-12")
 
 ;; Backups
 (defvar backup-dir (expand-file-name "~/.emacs.d/backups/"))
