@@ -18,7 +18,7 @@
 (deftheme material-design "A light material design theme")
 
 (defvar material-design-colors-alist
-  '(("foreground"   . "#edf3f7")
+  '(("foreground"   . "#e2e2e2")
     ("background"   . "#3d3f40")
     ("light-grey-one" . "#dce1e6")
     ("light-grey-two" . "#9fa3a6")

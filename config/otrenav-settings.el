@@ -28,7 +28,7 @@
 (setq use-dialog-box nil)
 (setq visible-bell t)
 (setq x-select-enable-clipboard t)
-(setq menu-bar-mode -1)
+(menu-bar-mode -1)
 
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
@@ -58,10 +58,12 @@
 (setq auto-window-vscroll nil)
 (setq mouse-wheel-follow-mouse t)
 (setq mouse-wheel-progressive-speed nil)
-(scroll-bar-mode -1)
 
 (if (display-graphic-p)
-    (scroll-bar-mode -1)
+    (progn
+      (set-face-attribute 'default nil
+                          :font "Roboto Mono-16")
+      (scroll-bar-mode -1))
   (progn
     (require 'mouse)
     (xterm-mouse-mode 1)
@@ -73,10 +75,6 @@
                                  (scroll-up 1)))
     (defun track-mouse(e))
     (setq mouse-sel-mode 1)))
-
-;; Font
-(set-face-attribute 'default nil
-                    :font "Roboto Mono-12")
 
 ;; Backups
 (defvar backup-dir (expand-file-name "~/.emacs.d/backups/"))

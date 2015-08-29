@@ -100,7 +100,9 @@
 (require 'autopair)
 (require 'diff-hl)
 (require 'editorconfig)
-(require 'git-gutter-fringe)
+
+(if (display-graphic-p)
+    (require 'git-gutter-fringe))
 
 ;; Neotree
 (require 'neotree)
