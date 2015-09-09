@@ -9,3 +9,5 @@ recentf
 srecode-map.el
 var/
 bookmarks/session.*
+session.*
+*.el~

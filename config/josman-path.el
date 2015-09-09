@@ -17,4 +17,4 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 (provide 'josman-path)
-;;; otrenav-path.el ends here
+;;; josman-path.el ends here

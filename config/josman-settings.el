@@ -1,4 +1,4 @@
-;;; otrenav-settings.el --- General settings configuration
+;;; josman-settings.el --- General settings configuration
 
 ;;; Commentary:
 
@@ -7,6 +7,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (autopair-global-mode t)
+(global-linum-mode t)
 
 (delete-selection-mode t)
 (global-font-lock-mode t)
@@ -46,7 +47,7 @@
 
 ;; Theme
 ;;(load-theme 'solarized-dark t)
-(load-theme 'material-design t)
+(load-theme 'deeper-blue t)
 
 ;; Whitespace
 (setq-default indicate-empty-lines t)
@@ -62,7 +63,7 @@
 (if (display-graphic-p)
     (progn
       (set-face-attribute 'default nil
-                          :font "Roboto Mono-16")
+                          :font "Roboto Mono-14")
       (scroll-bar-mode -1))
   (progn
     (require 'mouse)
@@ -91,5 +92,5 @@
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
-(provide 'otrenav-settings)
-;;; otrenav-settings.el ends here
+(provide 'josman-settings)
+;;; josman-settings.el ends here

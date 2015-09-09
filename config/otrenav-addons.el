@@ -44,15 +44,15 @@
 (global-set-key (kbd "s-o") 'ido-find-file)
 
 ;; Smex
-(require 'smex)
-(smex-initialize)
-(setq smex-save-file
-      (expand-file-name "misc/smex-items" user-emacs-directory))
+;; (require 'smex)
+;; (smex-initialize)
+;; (setq smex-save-file
+;;       (expand-file-name "misc/smex-items" user-emacs-directory))
 
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c M-x") 'smex-update)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; (global-set-key (kbd "M-x") 'smex)
+;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; (global-set-key (kbd "C-c M-x") 'smex-update)
+;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -77,9 +77,9 @@
 (setq-default dired-omit-files-p t)
 
 ;; Acejump
-(require 'ace-jump-mode)
-(global-set-key (kbd "C-o SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-o w") 'ace-window)
+;; (require 'ace-jump-mode)
+;; (global-set-key (kbd "C-o SPC") 'ace-jump-mode)
+;; (global-set-key (kbd "C-o w") 'ace-window)
 
 ;; Bookmarks
 (require 'bookmark+)
